@@ -41,13 +41,13 @@ const int day_month_month_first[] = {
 };
 
 const char *DAY_NAME_ENGLISH[] = {
-	"SUN",
-	"MON",
-	"TUE",
-	"WED",
-	"THU",
-	"FRI",
-	"SAT"
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday"
 };
 
 const char *MOONPHASE_TEXT_ENGLISH[] = {

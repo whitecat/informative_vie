@@ -23,6 +23,16 @@
             "file": "fonts/futura.ttf"
         },
         {
+			"type":"font",
+			"defName": "FONT_ARIAL_28_BOLD",
+			"file":"fonts/arial.ttf"
+	    },
+        {
+			"type":"font",
+			"defName": "FONT_HELVETICA_18_BOLD",
+			"file":"fonts/helvetica.ttf"
+	    },
+        {
             "defName": "IMAGE_WIND",
             "type": "png",
             "file": "images/wind.png"

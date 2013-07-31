@@ -36,4 +36,4 @@ static AppMessageCallbacksNode app_callbacks;
 
 void request_phone_state();
 
-#endif 
+#endif
