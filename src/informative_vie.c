@@ -12,7 +12,7 @@
 
 #define MY_UUID { 0xEE, 0x27, 0xFA, 0x56, 0x21, 0x65, 0x4B, 0x02, 0xA8, 0xAE, 0xB1, 0xD4, 0xD2, 0x3B, 0x9F, 0x50 }
 
-PBL_APP_INFO(MY_UUID, "Informative Vie", "rfrcarvalho", 1, 5, /* App major/minor version */
+PBL_APP_INFO(MY_UUID, "Informative Vie", "whitecat", 0, 8, /* App major/minor version */
 RESOURCE_ID_IMAGE_MENU_ICON, APP_INFO_WATCH_FACE);
 
 Window window;
