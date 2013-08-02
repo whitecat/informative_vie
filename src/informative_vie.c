@@ -334,7 +334,13 @@ void update_display(PblTm *current_time) {
 	unsigned short display_hour = get_display_hour(current_time->tm_hour);
 //This is how we will do timezones when it is working
 //	string_format_time(str_time, sizeof(str_time), "%H:%M %Z", current_time);
-	string_format_time(str_time, sizeof(str_time), "%H:%M ", current_time);
+
+	if(clock_is_24h_style()){
+		string_format_time(str_time, sizeof(str_time), "%H:%M ", current_time);
+	}
+	else{
+		string_format_time(str_time, sizeof(str_time), "%l:%M %P", current_time);
+	}
 
 	text_layer_set_text(&timeLayer, str_time);
 
@@ -416,7 +422,7 @@ void handle_init(AppContextRef ctx) {
 
 	// Day of week text
 	text_layer_init(&DayOfWeekLayer,
-			GRect(5, 0, 130 /* width */, 30 /* height */));
+			GRect(0, 0, 150 /* width */, 30 /* height */));
 	layer_add_child(&window.layer, &DayOfWeekLayer.layer);
 	text_layer_set_text_color(&DayOfWeekLayer, GColorWhite);
 	text_layer_set_background_color(&DayOfWeekLayer, GColorClear);
@@ -424,7 +430,7 @@ void handle_init(AppContextRef ctx) {
 	text_layer_set_text_alignment(&DayOfWeekLayer, GTextAlignmentCenter);
 
 	// Date info text
-	text_layer_init(&dateLayer, GRect(5, 25, 130 /* width */, 30 /* height */));
+	text_layer_init(&dateLayer, GRect(0, 25, 150 /* width */, 30 /* height */));
 	layer_add_child(&window.layer, &dateLayer.layer);
 	text_layer_set_text_color(&dateLayer, GColorWhite);
 	text_layer_set_background_color(&dateLayer, GColorClear);
@@ -433,8 +439,7 @@ void handle_init(AppContextRef ctx) {
 
 
 	// Clock Text
-	text_layer_init(&timeLayer,
-			GRect(0, 45, 150 /* width */, 50 /* height */));
+	text_layer_init(&timeLayer, GRect(0, 45, 150 /* width */, 50 /* height */));
 	layer_add_child(&window.layer, &timeLayer.layer);
 	text_layer_set_text_color(&timeLayer, GColorWhite);
 	text_layer_set_background_color(&timeLayer, GColorClear);
