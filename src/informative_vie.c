@@ -10,7 +10,7 @@
 #include "util.h"
 #include "link_monitor.h"
 
-#define MY_UUID { 0xEE, 0x27, 0xFA, 0x56, 0x21, 0x65, 0x4B, 0x02, 0xA8, 0xAE, 0xB1, 0xD4, 0xD2, 0x3B, 0x9F, 0x50 }
+#define MY_UUID { 0xEE, 0x27, 0xFA, 0x56, 0x21, 0x65, 0x4D, 0x02, 0xA8, 0xAE, 0xB1, 0xD4, 0xD2, 0x3B, 0x9F, 0x50 }
 
 PBL_APP_INFO(MY_UUID, "Informative Vie", "whitecat", 0, 8, /* App major/minor version */
 RESOURCE_ID_IMAGE_MENU_ICON, APP_INFO_WATCH_FACE);
@@ -405,20 +405,20 @@ void handle_init(AppContextRef ctx) {
 
 	window_init(&window, "91 Weather");
 	window_stack_push(&window, true /* Animated */);
-	window_set_background_color(&window, GColorBlack);
-
+	window_set_background_color(&window, GColorWhite);
+//	GColorWhite
 	resource_init_current_app(&APP_RESOURCES);
 
 	// Load Fonts
 	font_temperature = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FUTURA_40));
-	font_time= fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ARIAL_28_BOLD));
+	font_time= fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ARIAL_30_BOLD));
 	font_date = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_HELVETICA_18_BOLD));
 
 	// Day of week text
 	text_layer_init(&DayOfWeekLayer,
 			GRect(5, 0, 130 /* width */, 30 /* height */));
 	layer_add_child(&window.layer, &DayOfWeekLayer.layer);
-	text_layer_set_text_color(&DayOfWeekLayer, GColorWhite);
+	text_layer_set_text_color(&DayOfWeekLayer, GColorBlack);
 	text_layer_set_background_color(&DayOfWeekLayer, GColorClear);
 	text_layer_set_font(&DayOfWeekLayer, font_date);
 	text_layer_set_text_alignment(&DayOfWeekLayer, GTextAlignmentCenter);
@@ -426,7 +426,7 @@ void handle_init(AppContextRef ctx) {
 	// Date info text
 	text_layer_init(&dateLayer, GRect(5, 25, 130 /* width */, 30 /* height */));
 	layer_add_child(&window.layer, &dateLayer.layer);
-	text_layer_set_text_color(&dateLayer, GColorWhite);
+	text_layer_set_text_color(&dateLayer, GColorBlack);
 	text_layer_set_background_color(&dateLayer, GColorClear);
 	text_layer_set_font(&dateLayer, font_date);
 	text_layer_set_text_alignment(&dateLayer, GTextAlignmentCenter);
@@ -434,16 +434,16 @@ void handle_init(AppContextRef ctx) {
 
 	// Clock Text
 	text_layer_init(&timeLayer,
-			GRect(0, 45, 150 /* width */, 50 /* height */));
+			GRect(0, 47, 150 /* width */, 50 /* height */));
 	layer_add_child(&window.layer, &timeLayer.layer);
-	text_layer_set_text_color(&timeLayer, GColorWhite);
+	text_layer_set_text_color(&timeLayer, GColorBlack);
 	text_layer_set_background_color(&timeLayer, GColorClear);
 	text_layer_set_font(&timeLayer, font_time);
 	text_layer_set_text_alignment(&timeLayer, GTextAlignmentCenter);
 
 	// Sunrise Text Title
 	text_layer_init(&text_sunrise_title_layer, window.layer.frame);
-	text_layer_set_text_color(&text_sunrise_title_layer, GColorWhite);
+	text_layer_set_text_color(&text_sunrise_title_layer, GColorBlack);
 	text_layer_set_background_color(&text_sunrise_title_layer, GColorClear);
 	layer_set_frame(&text_sunrise_title_layer.layer, GRect(15, 85, 100, 30));
 	text_layer_set_font(&text_sunrise_title_layer,
@@ -453,7 +453,7 @@ void handle_init(AppContextRef ctx) {
 
 	// Sunrise Text
 	text_layer_init(&text_sunrise_layer, window.layer.frame);
-	text_layer_set_text_color(&text_sunrise_layer, GColorWhite);
+	text_layer_set_text_color(&text_sunrise_layer, GColorBlack);
 	text_layer_set_background_color(&text_sunrise_layer, GColorClear);
 	layer_set_frame(&text_sunrise_layer.layer, GRect(20, 100, 100, 30));
 	text_layer_set_font(&text_sunrise_layer,
@@ -462,7 +462,7 @@ void handle_init(AppContextRef ctx) {
 
 	// Sunset Text Title
 	text_layer_init(&text_sunset_title_layer, window.layer.frame);
-	text_layer_set_text_color(&text_sunset_title_layer, GColorWhite);
+	text_layer_set_text_color(&text_sunset_title_layer, GColorBlack);
 	text_layer_set_background_color(&text_sunset_title_layer, GColorClear);
 	layer_set_frame(&text_sunset_title_layer.layer, GRect(80, 85, 100, 30));
 	text_layer_set_font(&text_sunset_title_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
@@ -471,7 +471,7 @@ void handle_init(AppContextRef ctx) {
 
 	// Sunset Text
 	text_layer_init(&text_sunset_layer, window.layer.frame);
-	text_layer_set_text_color(&text_sunset_layer, GColorWhite);
+	text_layer_set_text_color(&text_sunset_layer, GColorBlack);
 	text_layer_set_background_color(&text_sunset_layer, GColorClear);
 	layer_set_frame(&text_sunset_layer.layer, GRect(85, 100, 100, 30));
 	text_layer_set_font(&text_sunset_layer,
@@ -480,7 +480,7 @@ void handle_init(AppContextRef ctx) {
 
 	// Text for Temperature
 	text_layer_init(&text_temperature_layer, window.layer.frame);
-	text_layer_set_text_color(&text_temperature_layer, GColorWhite);
+	text_layer_set_text_color(&text_temperature_layer, GColorBlack);
 	text_layer_set_background_color(&text_temperature_layer, GColorClear);
 	layer_set_frame(&text_temperature_layer.layer, GRect(68, 120, 64, 68));
 	text_layer_set_font(&text_temperature_layer, font_temperature);

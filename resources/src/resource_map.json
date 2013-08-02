@@ -24,7 +24,7 @@
         },
         {
 			"type":"font",
-			"defName": "FONT_ARIAL_28_BOLD",
+			"defName": "FONT_ARIAL_30_BOLD",
 			"file":"fonts/arial.ttf"
 	    },
         {
